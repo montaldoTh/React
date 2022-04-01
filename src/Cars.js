@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 
-const Cars=(props)=>{
+const Cars=({color,children})=>{
+    const colorInfo= color ? (<p>Couleur: {color}</p>):(<p>Couleur: Neant</p>)
+    if(children){
     return(
         <div className="Cars" style={{backgroundColor: 'lightgray', width:'400px', padding:'10px', margin:'5px auto'}}>
-            <p> Marque : {props.children} </p>
-            <p> Couleur : {props.color}</p>
+            <p> Marque : {children} </p>
+            {colorInfo}
         </div>
     )
+    }else{
+        return(
+            <div className="Cars" style={{backgroundColor: 'lightgray', width:'400px', padding:'10px', margin:'5px auto'}}>
+            <p>No data! </p>
+        </div>
+        )
+    }
 }
 
 export default Cars;
